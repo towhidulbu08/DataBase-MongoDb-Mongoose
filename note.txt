@@ -1,0 +1,16 @@
+=>DataBase:
+
+1.RDMS
+2.Non RDMS:
+
+
+=>Mongoose:
+
+=>Benefits Of Using Mongoose:
+
+i.Abstraction from raw low level MongoDb
+ii.Relationship between NoSQL  Data
+iii.Provides Schema Validation
+iv.Object-Data Mapping- translation of data into object that our code understand and vice-versa
+v.~ 40%-60% less code compared to raw MongoDb
+
