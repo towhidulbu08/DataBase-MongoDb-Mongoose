@@ -2,10 +2,51 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
 const todoSchema = require("../schemas/todoSchemas");
-const Todo = new mongoose.model("Todo", todoSchema);
+const Todo = mongoose.model("Todo", todoSchema);
+//GET active todos
+router.get("/active", async (req, res) => {
+  const todo = new Todo();
+  try {
+    const data = await todo.findActive();
+    res.status(200).json({
+      data: data,
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: "There was a server side error",
+    });
+  }
+});
+
+//Static method include
+router.get("/js", async (req, res) => {
+  try {
+    const data = await Todo.findByJs();
+    res.status(200).json({
+      data,
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: "There was a server side error",
+    });
+  }
+});
+//GET Todos by language
+
+router.get("/lang", async (req, res) => {
+  try {
+    const data = await Todo.find().byLanguage("react");
+    res.status(200).json({
+      data,
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: "There was a server side error",
+    });
+  }
+});
 
 //GET all the todos
-
 router.get("/", async (req, res) => {
   try {
     const data = await Todo.find({ status: "active" });

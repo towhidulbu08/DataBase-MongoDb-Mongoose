@@ -14,3 +14,5 @@ iii.Provides Schema Validation
 iv.Object-Data Mapping- translation of data into object that our code understand and vice-versa
 v.~ 40%-60% less code compared to raw MongoDb
 
+
+=> mongoose Instance Methods, Static & Query Helpers:
